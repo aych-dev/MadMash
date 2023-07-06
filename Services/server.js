@@ -9,24 +9,26 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.post('/', async (req, res) => {
+app.get('/', async (req, res) => {
   try {
-    const { groupKey, groupValue, page, limit } = req.body;
     const url = `https://rpc.helius.xyz/?api-key=${process.env.API_KEY}`;
-
     const { data } = await axios.post(url, {
+      jsonrpc: '2.0',
+      id: 'my-id',
+      method: 'getAssetsByGroup',
       params: {
-        groupKey,
-        groupValue,
-        page,
-        limit,
+        groupKey: 'collection',
+        groupValue: 'J1S9H3QjnRtBbbuD4HjPV6RpRhwuk4zKbxsnCHuTgh9w',
+        page: 1,
+        limit: 1000,
       },
     });
-    res.json(data.items);
+    const { result } = data;
+    res.json(result.items);
   } catch (err) {
     console.error('Error retrieving assets by group:', err);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
 
-app.listen(PORT, () => console.log('Server is running'));
+app.listen(PORT, () => console.log(`Server is running ${PORT}`));

@@ -9,13 +9,8 @@ const useMintlist = () => {
   useEffect(() => {
     const getMintlist = async () => {
       try {
-        const { data } = await axios.post(`http://localhost:8000/`, {
-          groupKey: 'collection',
-          groupValue: 'J1S9H3QjnRtBbbuD4HjPV6RpRhwuk4zKbxsnCHuTgh9w',
-          page: 1,
-          limit: 1000,
-        });
-        setNftData(data.items);
+        const { data } = await axios.get(`http://localhost:8000`);
+        setNftData(data);
       } catch (err) {
         console.error(err as AxiosError);
       }
