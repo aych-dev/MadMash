@@ -26,7 +26,7 @@ app.get('/', async (req, res) => {
     const { result } = data;
     res.json(result.items);
   } catch (err) {
-    console.error('Error retrieving assets by group:', err);
+    console.error(err);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
