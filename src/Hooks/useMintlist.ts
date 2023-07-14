@@ -1,9 +1,13 @@
 import axios, { AxiosError } from 'axios';
 import { useState, useEffect } from 'react';
 
-const useMintlist = () => {
-  const [nftData, setNftData] = useState([]);
+interface MintList {
+  id: string;
+  content: { files: [{ uri: string }] };
+}
 
+const useMintlist = () => {
+  const [nftData, setNftData] = useState<MintList[]>([]);
   console.log(nftData);
 
   useEffect(() => {
