@@ -15,7 +15,7 @@ function App() {
 
   return (
     <>
-      <div>test</div>
+      <div>testing</div>
     </>
   );
 }
