@@ -1,22 +1,10 @@
-import useMintlist from './Hooks/useMintlist';
-
-interface ImageArray {
-  image: string;
-  id: string;
-}
+import ImageDisplay from './Components/ImageDisplay';
 
 function App() {
-  const { nftData } = useMintlist();
-  const imagesArray: ImageArray[] = [];
-
-  nftData.forEach((data) => {
-    imagesArray.push({ image: data.content.files[0].uri, id: data.id });
-  });
-
   return (
-    <>
-      <div>testing</div>
-    </>
+    <div>
+      <ImageDisplay />
+    </div>
   );
 }
 
