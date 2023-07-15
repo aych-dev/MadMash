@@ -1,18 +1,19 @@
-import { useState } from 'react';
-
-import useNftImage from '../Hooks/useNftImage';
+import useMintlist from '../Hooks/useMintlist';
 
 const ImageDisplay = () => {
-  const { listOfImages } = useNftImage();
-  const [currentImage, setCurrentImage] = useState();
+  const { listOfImages } = useMintlist();
 
-  console.log(listOfImages);
+  if (listOfImages.length < 1) 
+    return null
+  
+  const testImage = listOfImages[0].image
+ 
 
   return (
     <div>
       <div className='grid grid-cols-2'>
         <div className='col-span-2'>
-          <img src='' alt='test' />
+          <img src={testImage} alt='test' />
         </div>
       </div>
     </div>

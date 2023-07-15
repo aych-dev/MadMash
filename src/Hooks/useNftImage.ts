@@ -1,19 +1,14 @@
-import useMintlist from './useMintlist';
+// import useMintlist from './useMintlist';
 
-export interface ImageArray {
-  image: string;
-  id: string;
-}
+// const useNftImage = () => {
+//   const { nftData } = useMintlist();
+//   const listOfImages: ImageArray[] = [];
 
-const useNftImage = () => {
-  const { nftData } = useMintlist();
-  const listOfImages: ImageArray[] = [];
+//   nftData.forEach((data) => {
+//     listOfImages.push({ image: data.content.files[0].uri, id: data.id });
+//   });
 
-  nftData.forEach((data) => {
-    listOfImages.push({ image: data.content.files[0].uri, id: data.id });
-  });
+//   return { listOfImages };
+// };
 
-  return { listOfImages };
-};
-
-export default useNftImage;
+// export default useNftImage;
