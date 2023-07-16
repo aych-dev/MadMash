@@ -10,9 +10,10 @@ const ImageDisplay = () => {
   return (
     <div>
       <div className='grid grid-cols-2'>
-        <div className='col-span-2'>
-          <img className='h-auto w-48' src={testImage} alt='test' />
-        </div>
+        <img className='h-auto w-48 rounded' src={testImage} alt='test' />
+        <img className='h-auto w-48 rounded' src={testImage} alt='test' />
+        <div>Mad Lad 1</div>
+        <div>Mad Lad 2</div>
       </div>
     </div>
   );
