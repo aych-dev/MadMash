@@ -3,11 +3,12 @@ import useMintlist from '../Hooks/useMintlist';
 const FirstImageDisplay = () => {
   const { listOfImages } = useMintlist();
 
-  if (listOfImages.length < 1) return null;
+  if (listOfImages.length < 1) return 'noImage';
 
   const firstImageElement = listOfImages.map((image, index) => {
-    let number = 500;
-    if (number !== index) return null;
+    let randomNumber = 6;
+
+    if (randomNumber !== index) return null;
 
     return (
       <div key={image.id}>
