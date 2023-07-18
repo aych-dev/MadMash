@@ -1,9 +1,5 @@
 const TitleDisplay = () => {
-  return (
-    <div className='flex items-center justify-center'>
-      Which Mad Lads screams FOCK?
-    </div>
-  );
+  return <div className='flex items-center justify-center'>FOCKIN' Choose</div>;
 };
 
 export default TitleDisplay;
