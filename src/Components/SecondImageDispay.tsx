@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import useMintlist from '../Hooks/useMintlist';
 import MadLadsRedLogo from '../Images/MadLads_RedLogo.png';
 
 const SecondImageDispay = () => {
   const { listOfImages } = useMintlist();
+  const [newImage, setNewImage] = useState(MadLadsRedLogo);
 
   if (listOfImages.length < 1) return null;
 
@@ -15,7 +17,7 @@ const SecondImageDispay = () => {
         <img
           onClick={() => console.log('testing 2')}
           className='h-auto w-48 rounded cursor-pointer'
-          src={MadLadsRedLogo}
+          src={newImage}
           alt='test'
         />
         <div className='flex items-center justify-center'>
