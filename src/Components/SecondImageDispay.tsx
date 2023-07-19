@@ -7,11 +7,16 @@ const SecondImageDispay = () => {
   const [newImage, setNewImage] = useState(MadLadsRedLogo);
   const [newNumber, setNewNumber] = useState(0);
 
+  console.log(newImage);
+
   if (listOfImages.length < 1) return null;
 
   const secondImageElement = listOfImages.map((image, index) => {
     const selectNewImage = () => {
       setNewNumber(Math.floor(Math.random() * (1000 - 1 + 1) + 1));
+      if (newNumber === index) {
+        setNewImage(image.image);
+      }
     };
 
     let number = newNumber;
