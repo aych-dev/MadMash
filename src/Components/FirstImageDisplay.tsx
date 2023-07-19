@@ -1,5 +1,5 @@
 import useMintlist from '../Hooks/useMintlist';
-import MadLadsLogo from '../Images/MadLads_Logo.png';
+import MadLadsLogoBlack from '../Images/MadLads_BlackLogo.png';
 
 const FirstImageDisplay = () => {
   const { listOfImages } = useMintlist();
@@ -12,12 +12,18 @@ const FirstImageDisplay = () => {
     if (randomNumber !== index) return null;
 
     return (
-      <div key={image.id}>
-        <img className='h-auto w-48 rounded' src={MadLadsLogo} alt='test' />
-        <div className='flex items-center justify-center'>
-          <div>{image.name}</div>
+      <>
+        <div key={image.id}>
+          <img
+            className='h-auto w-48 rounded'
+            src={MadLadsLogoBlack}
+            alt='test'
+          />
         </div>
-      </div>
+        <div className='flex items-center justify-center'>
+          <div>Mad Lads</div>
+        </div>
+      </>
     );
   });
 

@@ -1,4 +1,5 @@
 import FirstImageDisplay from './FirstImageDisplay';
+import RatingTracker from './RatingTracker';
 import SecondImageDispay from './SecondImageDispay';
 import TitleDisplay from './TitleDisplay';
 
@@ -9,8 +10,18 @@ const ImageDisplay = () => {
         <div className='col-span-2'>
           <TitleDisplay />
         </div>
-        <FirstImageDisplay />
-        <SecondImageDispay />
+        <div className='flex items-center justify-center'>
+          <FirstImageDisplay />
+        </div>
+        <div className='flex items-center justify-center'>
+          <SecondImageDispay />
+        </div>
+        <div className='flex items-center justify-center'>
+          <RatingTracker />
+        </div>
+        <div className='flex items-center justify-center'>
+          <RatingTracker />
+        </div>
       </div>
     </div>
   );

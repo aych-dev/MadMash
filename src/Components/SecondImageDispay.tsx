@@ -1,5 +1,5 @@
 import useMintlist from '../Hooks/useMintlist';
-import MadLadsLogo from '../Images/MadLads_Logo.png';
+import MadLadsRedLogo from '../Images/MadLads_RedLogo.png';
 
 const SecondImageDispay = () => {
   const { listOfImages } = useMintlist();
@@ -12,9 +12,9 @@ const SecondImageDispay = () => {
 
     return (
       <div key={image.id}>
-        <img className='h-auto w-48 rounded' src={MadLadsLogo} alt='test' />
+        <img className='h-auto w-48 rounded' src={MadLadsRedLogo} alt='test' />
         <div className='flex items-center justify-center'>
-          <div>{image.name}</div>
+          <div>Mad Lads</div>
         </div>
       </div>
     );
