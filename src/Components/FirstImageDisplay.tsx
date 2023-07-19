@@ -6,6 +6,7 @@ const FirstImageDisplay = () => {
   const { listOfImages } = useMintlist();
   const [newImage, setNewImage] = useState(MadLadsLogoBlack);
   const [newNumber, setNewNumber] = useState(0);
+  const [imageLabel, setImageLabel] = useState('Mad Lads');
 
   if (listOfImages.length < 1) return null;
 
@@ -14,6 +15,7 @@ const FirstImageDisplay = () => {
       setNewNumber(Math.floor(Math.random() * (1000 - 1 + 1) + 1));
       if (newNumber === index) {
         setNewImage(image.image);
+        setImageLabel(image.name);
       }
     };
 
@@ -29,7 +31,7 @@ const FirstImageDisplay = () => {
           alt='test'
         />
         <div className='flex items-center justify-center'>
-          <div>Mad Lads</div>
+          <div>{imageLabel}</div>
         </div>
       </div>
     );

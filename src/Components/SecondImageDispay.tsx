@@ -4,8 +4,9 @@ import MadLadsRedLogo from '../Images/MadLads_RedLogo.png';
 
 const SecondImageDispay = () => {
   const { listOfImages } = useMintlist();
-  const [newImage, setNewImage] = useState(MadLadsRedLogo);
-  const [newNumber, setNewNumber] = useState(0);
+  const [newImage, setNewImage] = useState<string>(MadLadsRedLogo);
+  const [newNumber, setNewNumber] = useState<number>(0);
+  const [imageLabel, setImageLabel] = useState<string>('Mad Lads');
 
   console.log(newImage);
 
@@ -16,6 +17,7 @@ const SecondImageDispay = () => {
       setNewNumber(Math.floor(Math.random() * (1000 - 1 + 1) + 1));
       if (newNumber === index) {
         setNewImage(image.image);
+        setImageLabel(image.name);
       }
     };
 
@@ -31,7 +33,7 @@ const SecondImageDispay = () => {
           alt='test'
         />
         <div className='flex items-center justify-center'>
-          <div>Mad Lads</div>
+          <div>{imageLabel}</div>
         </div>
       </div>
     );
