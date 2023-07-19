@@ -1,9 +1,5 @@
 const RatingTracker = () => {
-  return (
-    <div className='w-15'>
-      ⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️
-    </div>
-  );
+  return <div>⭐️</div>;
 };
 
 export default RatingTracker;

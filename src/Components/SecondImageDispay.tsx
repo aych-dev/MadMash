@@ -12,7 +12,12 @@ const SecondImageDispay = () => {
 
     return (
       <div key={image.id}>
-        <img className='h-auto w-48 rounded' src={MadLadsRedLogo} alt='test' />
+        <img
+          onClick={() => console.log('testing 2')}
+          className='h-auto w-48 rounded cursor-pointer'
+          src={MadLadsRedLogo}
+          alt='test'
+        />
         <div className='flex items-center justify-center'>
           <div>Mad Lads</div>
         </div>

@@ -13,14 +13,12 @@ const FirstImageDisplay = () => {
 
     return (
       <div key={image.id}>
-        <div>
-          <img
-            onClick={() => console.log('test')}
-            className='h-auto w-48 rounded cursor-pointer'
-            src={MadLadsLogoBlack}
-            alt='test'
-          />
-        </div>
+        <img
+          onClick={() => console.log('test')}
+          className='h-auto w-48 rounded cursor-pointer'
+          src={MadLadsLogoBlack}
+          alt='test'
+        />
         <div className='flex items-center justify-center'>
           <div>Mad Lads</div>
         </div>
