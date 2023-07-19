@@ -12,10 +12,11 @@ const FirstImageDisplay = () => {
     if (randomNumber !== index) return null;
 
     return (
-      <>
-        <div key={image.id}>
+      <div key={image.id}>
+        <div>
           <img
-            className='h-auto w-48 rounded'
+            onClick={() => console.log('test')}
+            className='h-auto w-48 rounded cursor-pointer'
             src={MadLadsLogoBlack}
             alt='test'
           />
@@ -23,7 +24,7 @@ const FirstImageDisplay = () => {
         <div className='flex items-center justify-center'>
           <div>Mad Lads</div>
         </div>
-      </>
+      </div>
     );
   });
 
