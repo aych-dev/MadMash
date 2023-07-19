@@ -5,17 +5,22 @@ import MadLadsRedLogo from '../Images/MadLads_RedLogo.png';
 const SecondImageDispay = () => {
   const { listOfImages } = useMintlist();
   const [newImage, setNewImage] = useState(MadLadsRedLogo);
+  const [newNumber, setNewNumber] = useState(0);
 
   if (listOfImages.length < 1) return null;
 
   const secondImageElement = listOfImages.map((image, index) => {
-    let number = 400;
+    const selectNewImage = () => {
+      setNewNumber(Math.floor(Math.random() * (1000 - 1 + 1) + 1));
+    };
+
+    let number = newNumber;
     if (number !== index) return null;
 
     return (
       <div key={image.id}>
         <img
-          onClick={() => console.log('testing 2')}
+          onClick={() => selectNewImage()}
           className='h-auto w-48 rounded cursor-pointer'
           src={newImage}
           alt='test'
