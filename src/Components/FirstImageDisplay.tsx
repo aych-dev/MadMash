@@ -2,7 +2,11 @@ import { useEffect, useState } from 'react';
 import useMintlist from '../Hooks/useMintlist';
 import MadLadsLogoBlack from '../Images/MadLads_BlackLogo.png';
 
-const FirstImageDisplay = () => {
+interface Props {
+  startProgram: boolean;
+}
+
+const FirstImageDisplay = ({ startProgram }: Props) => {
   const { listOfImages } = useMintlist();
   const [preLoadedImage, setPreLoadedImage] = useState<string>(
     'https://madlads.s3.us-west-2.amazonaws.com/images/9308.png'
@@ -38,19 +42,35 @@ const FirstImageDisplay = () => {
     setCurrentId(preLoadedId);
   };
 
-  return (
-    <div key={currentId}>
-      <img
-        onClick={() => selectedImage()}
-        className='h-auto w-48 rounded cursor-pointer'
-        src={currentImage}
-        alt='test'
-      />
-      <div className='flex items-center justify-center'>
-        <div>{currentImageLabel}</div>
+  if (startProgram) {
+    return (
+      <div key={preLoadedId}>
+        <img
+          onClick={() => selectedImage()}
+          className='h-auto w-48 rounded cursor-pointer'
+          src={preLoadedImage}
+          alt='test'
+        />
+        <div className='flex items-center justify-center'>
+          <div>{preLoadedImageLabel}</div>
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div key={currentId}>
+        <img
+          onClick={() => selectedImage()}
+          className='h-auto w-48 rounded cursor-pointer'
+          src={currentImage}
+          alt='test'
+        />
+        <div className='flex items-center justify-center'>
+          <div>{currentImageLabel}</div>
+        </div>
+      </div>
+    );
+  }
 };
 
 export default FirstImageDisplay;

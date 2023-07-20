@@ -20,7 +20,7 @@ const ImageDisplay = () => {
           <TitleDisplay />
         </div>
         <div className='flex items-center justify-center'>
-          <FirstImageDisplay />
+          <FirstImageDisplay startProgram={startProgram} />
         </div>
         <div className='flex items-center justify-center'>
           <SecondImageDispay />
