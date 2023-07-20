@@ -4,21 +4,25 @@ import MadLadsRedLogo from '../Images/MadLads_RedLogo.png';
 
 const SecondImageDispay = () => {
   const { listOfImages } = useMintlist();
-  const [preLoadedImage, setPreLoadedImage] = useState<string>('');
-  const [preLoadedImageLabel, setPreLoadedImageLabel] = useState<string>('');
-  const [preLoadedId, setPreLoadedId] = useState<string>('');
+  const [preLoadedImage, setPreLoadedImage] = useState<string>(
+    'https://madlads.s3.us-west-2.amazonaws.com/images/9008.png'
+  );
+  const [preLoadedImageLabel, setPreLoadedImageLabel] =
+    useState<string>('Mad Lads #9008');
+  const [preLoadedId, setPreLoadedId] = useState<string>('123456');
   const [newNumber, setNewNumber] = useState<number>(0);
   const [currentImageLabel, setCurrentImageLabel] =
     useState<string>('Mad Lads');
   const [currentImage, setCurrentImage] = useState<string>(MadLadsRedLogo);
   const [currentId, setCurrentId] = useState<string>('abcdefg');
-  const [loading, setLoading] = useState<boolean>(false);
+  const [imageSelected, setImageSelected] = useState<boolean>(false);
 
-  if (listOfImages.length < 1) return null;
+  console.log(preLoadedImage);
+  console.log(currentImage);
 
   useEffect(() => {
-    const imagePreLoader = async () => {
-      await setNewNumber(Math.floor(Math.random() * 1000) + 1);
+    const imagePreLoader = () => {
+      setNewNumber(Math.floor(Math.random() * 1000) + 1);
       listOfImages.map((image, index) => {
         if (newNumber === index) {
           setPreLoadedImage(image.image);
@@ -28,13 +32,13 @@ const SecondImageDispay = () => {
       });
     };
     imagePreLoader();
-  }, [loading]);
+  }, [imageSelected]);
 
   const selectedImage = () => {
     setCurrentImage(preLoadedImage);
     setCurrentImageLabel(preLoadedImageLabel);
     setCurrentId(preLoadedId);
-    setLoading(!loading);
+    setImageSelected(!imageSelected);
   };
 
   return (

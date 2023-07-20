@@ -14,9 +14,6 @@ const FirstImageDisplay = () => {
   const [currentId, setCurrentId] = useState<string>('abcdefg');
   const [loading, setLoading] = useState<boolean>(false);
 
-  console.log(preLoadedImage);
-  console.log(currentImage);
-
   useEffect(() => {
     const imagePreLoader = async () => {
       await setNewNumber(Math.floor(Math.random() * 1000) + 1);
