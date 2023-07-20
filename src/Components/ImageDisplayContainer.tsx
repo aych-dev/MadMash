@@ -23,7 +23,7 @@ const ImageDisplay = () => {
           <FirstImageDisplay startProgram={startProgram} />
         </div>
         <div className='flex items-center justify-center'>
-          <SecondImageDispay />
+          <SecondImageDispay startProgram={startProgram} />
         </div>
         <div className='flex items-center justify-center'>
           <RatingTracker />

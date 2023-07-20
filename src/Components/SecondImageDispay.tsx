@@ -2,7 +2,11 @@ import { useState, useEffect } from 'react';
 import useMintlist from '../Hooks/useMintlist';
 import MadLadsRedLogo from '../Images/MadLads_RedLogo.png';
 
-const SecondImageDispay = () => {
+interface Props {
+  startProgram: boolean;
+}
+
+const SecondImageDispay = ({ startProgram }: Props) => {
   const { listOfImages } = useMintlist();
   const [preLoadedImage, setPreLoadedImage] = useState<string>(
     'https://madlads.s3.us-west-2.amazonaws.com/images/9798.png'
@@ -16,8 +20,6 @@ const SecondImageDispay = () => {
   const [currentImage, setCurrentImage] = useState<string>(MadLadsRedLogo);
   const [currentId, setCurrentId] = useState<string>('abcdefg');
   const [imageSelected, setImageSelected] = useState<boolean>(false);
-  console.log(preLoadedImage);
-  console.log(currentImage);
 
   useEffect(() => {
     const imagePreLoader = () => {
@@ -38,22 +40,37 @@ const SecondImageDispay = () => {
     setCurrentImage(preLoadedImage);
     setCurrentImageLabel(preLoadedImageLabel);
     setCurrentId(preLoadedId);
-    console.log('clicked');
   };
 
-  return (
-    <div key={currentId}>
-      <img
-        onClick={() => selectedImage()}
-        className='h-auto w-48 rounded cursor-pointer'
-        src={currentImage}
-        alt='test'
-      />
-      <div className='flex items-center justify-center'>
-        <div>{currentImageLabel}</div>
+  if (startProgram) {
+    return (
+      <div key={preLoadedId}>
+        <img
+          onClick={() => selectedImage()}
+          className='h-auto w-48 rounded cursor-pointer'
+          src={preLoadedImage}
+          alt='test'
+        />
+        <div className='flex items-center justify-center'>
+          <div>{preLoadedImageLabel}</div>
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div key={currentId}>
+        <img
+          onClick={() => selectedImage()}
+          className='h-auto w-48 rounded cursor-pointer'
+          src={currentImage}
+          alt='test'
+        />
+        <div className='flex items-center justify-center'>
+          <div>{currentImageLabel}</div>
+        </div>
+      </div>
+    );
+  }
 };
 
 export default SecondImageDispay;
