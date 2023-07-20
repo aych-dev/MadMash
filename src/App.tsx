@@ -1,4 +1,4 @@
-import ImageDisplay from './Components/ImageDisplay';
+import ImageDisplay from './Components/ImageDisplayContainer';
 
 function App() {
   return (

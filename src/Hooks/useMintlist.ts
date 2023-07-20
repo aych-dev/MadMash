@@ -4,11 +4,15 @@ import { useState, useEffect } from 'react';
 export interface ImageArray {
   image: string;
   id: string;
+  name: string;
 }
 
 export interface MintList {
   id: string;
-  content: { files: [{ uri: string }] };
+  content: {
+    files: [{ uri: string }];
+    metadata: { name: string };
+  };
 }
 
 const useMintlist = () => {
@@ -28,7 +32,11 @@ const useMintlist = () => {
   }, []);
 
   nftData.forEach((data) => {
-    listOfImages.push({ image: data.content.files[0].uri, id: data.id });
+    listOfImages.push({
+      image: data.content.files[0].uri,
+      id: data.id,
+      name: data.content.metadata.name,
+    });
   });
 
   return { listOfImages };

@@ -1,42 +1,55 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import useMintlist from '../Hooks/useMintlist';
 import MadLadsRedLogo from '../Images/MadLads_RedLogo.png';
 
 const SecondImageDispay = () => {
   const { listOfImages } = useMintlist();
-  const [newImage, setNewImage] = useState<string>(MadLadsRedLogo);
+  const [preLoadedImage, setPreLoadedImage] = useState<string>('');
+  const [preLoadedImageLabel, setPreLoadedImageLabel] = useState<string>('');
+  const [preLoadedId, setPreLoadedId] = useState<string>('');
   const [newNumber, setNewNumber] = useState<number>(0);
-  const [imageLabel, setImageLabel] = useState<string>('Mad Lads');
+  const [currentImageLabel, setCurrentImageLabel] =
+    useState<string>('Mad Lads');
+  const [currentImage, setCurrentImage] = useState<string>(MadLadsRedLogo);
+  const [currentId, setCurrentId] = useState<string>('abcdefg');
+  const [loading, setLoading] = useState<boolean>(false);
 
   if (listOfImages.length < 1) return null;
 
-  const secondImageElement = listOfImages.map((image, index) => {
-    const selectNewImage = () => {
-      setNewNumber(Math.floor(Math.random() * 1000) + 1);
-      if (newNumber === index) {
-        setNewImage(image.image);
-        setImageLabel(image.name);
-      }
+  useEffect(() => {
+    const imagePreLoader = async () => {
+      await setNewNumber(Math.floor(Math.random() * 1000) + 1);
+      listOfImages.map((image, index) => {
+        if (newNumber === index) {
+          setPreLoadedImage(image.image);
+          setPreLoadedImageLabel(image.name);
+          setPreLoadedId(image.id);
+        }
+      });
     };
+    imagePreLoader();
+  }, [loading]);
 
-    if (newNumber !== index) return null;
+  const selectedImage = () => {
+    setCurrentImage(preLoadedImage);
+    setCurrentImageLabel(preLoadedImageLabel);
+    setCurrentId(preLoadedId);
+    setLoading(!loading);
+  };
 
-    return (
-      <div key={image.id}>
-        <img
-          onClick={() => selectNewImage()}
-          className='h-auto w-48 rounded cursor-pointer'
-          src={newImage}
-          alt='test'
-        />
-        <div className='flex items-center justify-center'>
-          <div>{imageLabel}</div>
-        </div>
+  return (
+    <div key={currentId}>
+      <img
+        onClick={() => selectedImage()}
+        className='h-auto w-48 rounded cursor-pointer'
+        src={currentImage}
+        alt='test'
+      />
+      <div className='flex items-center justify-center'>
+        <div>{currentImageLabel}</div>
       </div>
-    );
-  });
-
-  return <div>{secondImageElement}</div>;
+    </div>
+  );
 };
 
 export default SecondImageDispay;
