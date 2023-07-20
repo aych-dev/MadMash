@@ -5,10 +5,10 @@ import MadLadsRedLogo from '../Images/MadLads_RedLogo.png';
 const SecondImageDispay = () => {
   const { listOfImages } = useMintlist();
   const [preLoadedImage, setPreLoadedImage] = useState<string>(
-    'https://madlads.s3.us-west-2.amazonaws.com/images/9008.png'
+    'https://madlads.s3.us-west-2.amazonaws.com/images/9798.png'
   );
   const [preLoadedImageLabel, setPreLoadedImageLabel] =
-    useState<string>('Mad Lads #9008');
+    useState<string>('Mad Lads #9798');
   const [preLoadedId, setPreLoadedId] = useState<string>('123456');
   const [newNumber, setNewNumber] = useState<number>(0);
   const [currentImageLabel, setCurrentImageLabel] =
@@ -16,6 +16,8 @@ const SecondImageDispay = () => {
   const [currentImage, setCurrentImage] = useState<string>(MadLadsRedLogo);
   const [currentId, setCurrentId] = useState<string>('abcdefg');
   const [imageSelected, setImageSelected] = useState<boolean>(false);
+  console.log(preLoadedImage);
+  console.log(currentImage);
 
   useEffect(() => {
     const imagePreLoader = () => {
@@ -32,10 +34,11 @@ const SecondImageDispay = () => {
   }, [imageSelected]);
 
   const selectedImage = () => {
+    setImageSelected(!imageSelected);
     setCurrentImage(preLoadedImage);
     setCurrentImageLabel(preLoadedImageLabel);
     setCurrentId(preLoadedId);
-    setImageSelected(!imageSelected);
+    console.log('clicked');
   };
 
   return (

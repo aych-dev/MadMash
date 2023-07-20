@@ -1,6 +1,7 @@
 import FirstImageDisplay from './FirstImageDisplay';
 import RatingTracker from './RatingTracker';
 import SecondImageDispay from './SecondImageDispay';
+import StartButton from './StartButton';
 import TitleDisplay from './TitleDisplay';
 
 const ImageDisplay = () => {
@@ -21,6 +22,9 @@ const ImageDisplay = () => {
         </div>
         <div className='flex items-center justify-center'>
           <RatingTracker />
+        </div>
+        <div className='flex items-center justify-center col-span-2 mt-10'>
+          <StartButton />
         </div>
       </div>
     </div>

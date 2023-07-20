@@ -18,8 +18,8 @@ const FirstImageDisplay = () => {
   const [imageSelected, setImageSelected] = useState<boolean>(false);
 
   useEffect(() => {
-    const imagePreLoader = async () => {
-      await setNewNumber(Math.floor(Math.random() * 1000) + 1);
+    const imagePreLoader = () => {
+      setNewNumber(Math.floor(Math.random() * 1000) + 1);
       listOfImages.map((image, index) => {
         if (newNumber === index) {
           setPreLoadedImage(image.image);
@@ -32,10 +32,10 @@ const FirstImageDisplay = () => {
   }, [imageSelected]);
 
   const selectedImage = () => {
+    setImageSelected(!imageSelected);
     setCurrentImage(preLoadedImage);
     setCurrentImageLabel(preLoadedImageLabel);
     setCurrentId(preLoadedId);
-    setImageSelected(!imageSelected);
   };
 
   return (
