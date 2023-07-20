@@ -17,9 +17,6 @@ const SecondImageDispay = () => {
   const [currentId, setCurrentId] = useState<string>('abcdefg');
   const [imageSelected, setImageSelected] = useState<boolean>(false);
 
-  console.log(preLoadedImage);
-  console.log(currentImage);
-
   useEffect(() => {
     const imagePreLoader = () => {
       setNewNumber(Math.floor(Math.random() * 1000) + 1);

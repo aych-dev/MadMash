@@ -4,15 +4,18 @@ import MadLadsLogoBlack from '../Images/MadLads_BlackLogo.png';
 
 const FirstImageDisplay = () => {
   const { listOfImages } = useMintlist();
-  const [preLoadedImage, setPreLoadedImage] = useState<string>('');
-  const [preLoadedImageLabel, setPreLoadedImageLabel] = useState<string>('');
-  const [preLoadedId, setPreLoadedId] = useState<string>('');
+  const [preLoadedImage, setPreLoadedImage] = useState<string>(
+    'https://madlads.s3.us-west-2.amazonaws.com/images/9308.png'
+  );
+  const [preLoadedImageLabel, setPreLoadedImageLabel] =
+    useState<string>('Mad Lads #9308');
+  const [preLoadedId, setPreLoadedId] = useState<string>('112222');
   const [newNumber, setNewNumber] = useState<number>(0);
   const [currentImageLabel, setCurrentImageLabel] =
     useState<string>('Mad Lads');
   const [currentImage, setCurrentImage] = useState<string>(MadLadsLogoBlack);
   const [currentId, setCurrentId] = useState<string>('abcdefg');
-  const [loading, setLoading] = useState<boolean>(false);
+  const [imageSelected, setImageSelected] = useState<boolean>(false);
 
   useEffect(() => {
     const imagePreLoader = async () => {
@@ -26,13 +29,13 @@ const FirstImageDisplay = () => {
       });
     };
     imagePreLoader();
-  }, [loading]);
+  }, [imageSelected]);
 
   const selectedImage = () => {
     setCurrentImage(preLoadedImage);
     setCurrentImageLabel(preLoadedImageLabel);
     setCurrentId(preLoadedId);
-    setLoading(!loading);
+    setImageSelected(!imageSelected);
   };
 
   return (
