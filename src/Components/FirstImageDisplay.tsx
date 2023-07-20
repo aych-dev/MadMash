@@ -60,7 +60,6 @@ const FirstImageDisplay = ({ startProgram }: Props) => {
     return (
       <div key={currentId}>
         <img
-          onClick={() => selectedImage()}
           className='h-auto w-48 rounded cursor-pointer'
           src={currentImage}
           alt='test'
