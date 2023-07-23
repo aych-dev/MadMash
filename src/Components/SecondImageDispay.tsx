@@ -4,20 +4,25 @@ import MadLadsRedLogo from '../Images/MadLads_RedLogo.png';
 
 interface Props {
   startProgram: boolean;
+  secondPreLoadedImage: string;
+  secondPreLoadedLabel: string;
 }
 
-const SecondImageDispay = ({ startProgram }: Props) => {
+const SecondImageDispay = ({
+  startProgram,
+  secondPreLoadedImage,
+  secondPreLoadedLabel,
+}: Props) => {
   const { listOfImages } = useMintlist();
-  const [preLoadedImage, setPreLoadedImage] = useState<string>(
-    'https://madlads.s3.us-west-2.amazonaws.com/images/9798.png'
-  );
+  const [preLoadedImage, setPreLoadedImage] = useState<string>('');
   const [preLoadedImageLabel, setPreLoadedImageLabel] =
     useState<string>('Mad Lads #9798');
   const [preLoadedId, setPreLoadedId] = useState<string>('123456');
   const [newNumber, setNewNumber] = useState<number>(0);
   const [currentImageLabel, setCurrentImageLabel] =
-    useState<string>('Mad Lads');
-  const [currentImage, setCurrentImage] = useState<string>(MadLadsRedLogo);
+    useState<string>(secondPreLoadedLabel);
+  const [currentImage, setCurrentImage] =
+    useState<string>(secondPreLoadedImage);
   const [currentId, setCurrentId] = useState<string>('abcdefg');
   const [imageSelected, setImageSelected] = useState<boolean>(false);
 
@@ -44,15 +49,15 @@ const SecondImageDispay = ({ startProgram }: Props) => {
 
   if (startProgram) {
     return (
-      <div key={preLoadedId}>
+      <div key={currentId}>
         <img
           onClick={() => selectedImage()}
           className='h-auto w-48 rounded cursor-pointer'
-          src={preLoadedImage}
+          src={currentImage}
           alt='test'
         />
         <div className='flex items-center justify-center'>
-          <div>{preLoadedImageLabel}</div>
+          <div>{currentImageLabel}</div>
         </div>
       </div>
     );
@@ -61,11 +66,11 @@ const SecondImageDispay = ({ startProgram }: Props) => {
       <div key={currentId}>
         <img
           className='h-auto w-48 rounded cursor-pointer'
-          src={currentImage}
+          src={MadLadsRedLogo}
           alt='test'
         />
         <div className='flex items-center justify-center'>
-          <div>{currentImageLabel}</div>
+          <div>Mad Lads</div>
         </div>
       </div>
     );

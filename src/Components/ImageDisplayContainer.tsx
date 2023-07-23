@@ -7,10 +7,26 @@ import TitleDisplay from './TitleDisplay';
 
 const ImageDisplay = () => {
   const [startProgram, setStartProgram] = useState<boolean>(false);
+  const [firstPreLoadedImage, setFirstPreLoadedImage] = useState<string>(
+    'https://madlads.s3.us-west-2.amazonaws.com/images/9308.png'
+  );
+  const [secondPreLoadedImage, setSecondPreLoadedImage] = useState<string>(
+    'https://madlads.s3.us-west-2.amazonaws.com/images/9798.png'
+  );
+  const [secondPreLoadedLabel, setSecondPreLoadedLabel] =
+    useState<string>('Mad Lads #9798');
 
   // Starts the program
   const onStartProgram = () => {
     setStartProgram((prevState) => !prevState);
+    if (startProgram === false) {
+      setFirstPreLoadedImage(
+        'https://madlads.s3.us-west-2.amazonaws.com/images/9308.png'
+      );
+      setSecondPreLoadedImage(
+        'https://madlads.s3.us-west-2.amazonaws.com/images/9798.png'
+      );
+    }
   };
 
   return (
@@ -20,10 +36,17 @@ const ImageDisplay = () => {
           <TitleDisplay />
         </div>
         <div className='flex items-center justify-center'>
-          <FirstImageDisplay startProgram={startProgram} />
+          <FirstImageDisplay
+            firstPreLoadedImage={firstPreLoadedImage}
+            startProgram={startProgram}
+          />
         </div>
         <div className='flex items-center justify-center'>
-          <SecondImageDispay startProgram={startProgram} />
+          <SecondImageDispay
+            secondPreLoadedImage={secondPreLoadedImage}
+            secondPreLoadedLabel={secondPreLoadedLabel}
+            startProgram={startProgram}
+          />
         </div>
         <div className='flex items-center justify-center'>
           <RatingTracker />

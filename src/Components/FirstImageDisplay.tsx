@@ -4,20 +4,22 @@ import MadLadsLogoBlack from '../Images/MadLads_BlackLogo.png';
 
 interface Props {
   startProgram: boolean;
+  firstPreLoadedImage: string;
 }
 
-const FirstImageDisplay = ({ startProgram }: Props) => {
+const FirstImageDisplay = ({ startProgram, firstPreLoadedImage }: Props) => {
   const { listOfImages } = useMintlist();
-  const [preLoadedImage, setPreLoadedImage] = useState<string>(
-    'https://madlads.s3.us-west-2.amazonaws.com/images/9308.png'
-  );
+  const [preLoadedImage, setPreLoadedImage] =
+    useState<string>(firstPreLoadedImage);
   const [preLoadedImageLabel, setPreLoadedImageLabel] =
     useState<string>('Mad Lads #9308');
   const [preLoadedId, setPreLoadedId] = useState<string>('112222');
   const [newNumber, setNewNumber] = useState<number>(0);
   const [currentImageLabel, setCurrentImageLabel] =
-    useState<string>('Mad Lads');
-  const [currentImage, setCurrentImage] = useState<string>(MadLadsLogoBlack);
+    useState<string>(preLoadedImageLabel);
+  const [currentImage, setCurrentImage] = useState<string>(
+    'https://madlads.s3.us-west-2.amazonaws.com/images/9108.png'
+  );
   const [currentId, setCurrentId] = useState<string>('abcdefg');
   const [imageSelected, setImageSelected] = useState<boolean>(false);
 
@@ -36,7 +38,9 @@ const FirstImageDisplay = ({ startProgram }: Props) => {
   }, [imageSelected]);
 
   const selectedImage = () => {
-    setImageSelected(!imageSelected);
+    if (imageSelected === false) {
+      setImageSelected(!imageSelected);
+    }
     setCurrentImage(preLoadedImage);
     setCurrentImageLabel(preLoadedImageLabel);
     setCurrentId(preLoadedId);
@@ -44,15 +48,15 @@ const FirstImageDisplay = ({ startProgram }: Props) => {
 
   if (startProgram) {
     return (
-      <div key={preLoadedId}>
+      <div key={currentId}>
         <img
           onClick={() => selectedImage()}
           className='h-auto w-48 rounded cursor-pointer'
-          src={preLoadedImage}
+          src={currentImage}
           alt='test'
         />
         <div className='flex items-center justify-center'>
-          <div>{preLoadedImageLabel}</div>
+          <div>{currentImageLabel}</div>
         </div>
       </div>
     );
@@ -61,11 +65,11 @@ const FirstImageDisplay = ({ startProgram }: Props) => {
       <div key={currentId}>
         <img
           className='h-auto w-48 rounded cursor-pointer'
-          src={currentImage}
+          src={MadLadsLogoBlack}
           alt='test'
         />
         <div className='flex items-center justify-center'>
-          <div>{currentImageLabel}</div>
+          <div>Mad Lads</div>
         </div>
       </div>
     );
