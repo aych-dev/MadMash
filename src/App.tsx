@@ -1,9 +1,9 @@
-import ImageDisplay from './Components/ImageDisplayContainer';
+import MainDisplayContainer from '../src/Components/MainDisplayContainer';
 
 function App() {
   return (
     <div>
-      <ImageDisplay />
+      <MainDisplayContainer />
     </div>
   );
 }
