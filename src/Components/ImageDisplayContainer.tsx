@@ -67,6 +67,13 @@ const ImageDisplayContainer = () => {
     setCurrentImageLabel(preLoadedImageLabel);
   };
 
+  const selectedImageTest = () => {
+    setImageSelected(!imageSelected);
+    setCurrentImageTest(preLoadedImage);
+    setCurrentIdTest(preLoadedId);
+    setCurrentImageLabelTest(preLoadedImageLabel);
+  };
+
   return (
     <div className='grid grid-cols-2 gap-3'>
       <FirstImageDisplay
@@ -77,7 +84,7 @@ const ImageDisplayContainer = () => {
         currentImageLabel={currentImageLabel}
       />
       <SecondImageDispay
-        selectedImage={selectedImage}
+        selectedImageTest={selectedImageTest}
         currentIdTest={currentIdTest}
         currentImageLabelTest={currentImageLabelTest}
         startProgram={startProgram}

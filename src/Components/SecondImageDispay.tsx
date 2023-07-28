@@ -3,7 +3,7 @@ interface Props {
   currentImageTest: string;
   startProgram: boolean;
   currentIdTest: string;
-  selectedImage: () => void;
+  selectedImageTest: () => void;
   currentImageLabelTest: string;
 }
 
@@ -11,14 +11,14 @@ const SecondImageDisplay = ({
   currentImageTest,
   startProgram,
   currentIdTest,
-  selectedImage,
+  selectedImageTest,
   currentImageLabelTest,
 }: Props) => {
   if (startProgram) {
     return (
       <div key={currentIdTest}>
         <img
-          onClick={() => selectedImage()}
+          onClick={() => selectedImageTest()}
           className='h-auto w-48 rounded cursor-pointer'
           src={currentImageTest}
           alt='test'
