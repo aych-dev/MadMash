@@ -11,10 +11,10 @@ const ImageDisplayContainer = () => {
     'https://madlads.s3.us-west-2.amazonaws.com/images/9108.png'
   );
   const [preLoadedImage, setPreLoadedImage] = useState<string>(
-    'https://madlads.s3.us-west-2.amazonaws.com/images/9308.png'
+    'https://madlads.s3.us-west-2.amazonaws.com/images/9508.png'
   );
   const [preLoadedImageLabel, setPreLoadedImageLabel] =
-    useState<string>('Mad Lad #9308');
+    useState<string>('Mad Lad #9508');
   const [currentImageLabel, setCurrentImageLabel] =
     useState<string>('Mad Lad #9108');
   const [imageSelected, setImageSelected] = useState<boolean>(false);
@@ -23,22 +23,15 @@ const ImageDisplayContainer = () => {
   const [preLoadedId, setPreLoadedId] = useState<string>('112222');
 
   const [currentImageTest, setCurrentImageTest] = useState<string>(
-    'https://madlads.s3.us-west-2.amazonaws.com/images/9108.png'
-  );
-  const [preLoadedImageTest, setPreLoadedImageTest] = useState<string>(
     'https://madlads.s3.us-west-2.amazonaws.com/images/9308.png'
   );
-  const [preLoadedImageLabelTest, setPreLoadedImageLabelTest] =
-    useState<string>('Mad Lad #9308');
   const [currentImageLabelTest, setCurrentImageLabelTest] =
-    useState<string>('Mad Lad #9108');
+    useState<string>('Mad Lad #9308');
   const [currentIdTest, setCurrentIdTest] = useState<string>('abcdefg');
-  const [newNumberTest, setNewNumberTest] = useState<number>(1);
 
   useEffect(() => {
     const imagePreLoader = () => {
       setNewNumber(Math.floor(Math.random() * 1000) + 1);
-      setNewNumberTest(Math.floor(Math.random() * 1000) + 1);
       listOfImages.map((image, index) => {
         if (newNumber === index) {
           setPreLoadedImage(image.image);
@@ -56,7 +49,11 @@ const ImageDisplayContainer = () => {
       setCurrentImage(
         'https://madlads.s3.us-west-2.amazonaws.com/images/9108.png'
       );
+      setCurrentImageTest(
+        'https://madlads.s3.us-west-2.amazonaws.com/images/9308.png'
+      );
       setCurrentImageLabel('Mad Lad #9108');
+      setCurrentImageLabelTest('Mad Lad #9308');
     }
   };
 
