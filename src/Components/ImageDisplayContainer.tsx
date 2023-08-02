@@ -59,16 +59,16 @@ const ImageDisplayContainer = () => {
 
   const firstSelectedImage = () => {
     setImageSelected(!imageSelected);
-    setFirstCurrentImage(preLoadedImage);
-    setFirstCurrentId(preLoadedId);
-    setFirstCurrentImageLabel(preLoadedImageLabel);
+    setSecondCurrentImage(preLoadedImage);
+    setSecondCurrentId(preLoadedId);
+    setCurrentImageLabelTest(preLoadedImageLabel);
   };
 
   const secondSelectedImage = () => {
     setImageSelected(!imageSelected);
-    setSecondCurrentImage(preLoadedImage);
-    setSecondCurrentId(preLoadedId);
-    setCurrentImageLabelTest(preLoadedImageLabel);
+    setFirstCurrentImage(preLoadedImage);
+    setFirstCurrentId(preLoadedId);
+    setFirstCurrentImageLabel(preLoadedImageLabel);
   };
 
   return (
@@ -80,6 +80,7 @@ const ImageDisplayContainer = () => {
         startProgram={startProgram}
         firstCurrentImageLabel={firstCurrentImageLabel}
       />
+
       <SecondImageDispay
         secondSelectedImage={secondSelectedImage}
         secondCurrentId={secondCurrentId}
