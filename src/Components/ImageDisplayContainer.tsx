@@ -21,7 +21,7 @@ const ImageDisplayContainer = () => {
     useState<string>('Mad Lad #9508');
   const [firstCurrentImageLabel, setFirstCurrentImageLabel] =
     useState<string>('Mad Lad #9108');
-  const [secondImageLabel, setCurrentImageLabelTest] =
+  const [secondImageLabel, setSecondImageLabel] =
     useState<string>('Mad Lad #9308');
   const [secondCurrentId, setSecondCurrentId] = useState<string>('abcdefg');
   const [imageSelected, setImageSelected] = useState<boolean>(false);
@@ -55,16 +55,20 @@ const ImageDisplayContainer = () => {
         'https://madlads.s3.us-west-2.amazonaws.com/images/9308.png'
       );
       setFirstCurrentImageLabel('Mad Lad #9108');
-      setCurrentImageLabelTest('Mad Lad #9308');
+      setSecondImageLabel('Mad Lad #9308');
+      setFirstImageStreak(0);
+      setSecondImageStreak(0);
     }
   };
 
-  const firstSelectedImage = () => {
+  const firstSelectedImage = (selectedImage: string) => {
     setImageSelected(!imageSelected);
     setSecondCurrentImage(preLoadedImage);
     setSecondCurrentId(preLoadedId);
-    setCurrentImageLabelTest(preLoadedImageLabel);
+    setSecondImageLabel(preLoadedImageLabel);
     imageStreak();
+    console.log(selectedImage);
+    console.log(firstCurrentId);
   };
 
   const secondSelectedImage = () => {
@@ -90,7 +94,6 @@ const ImageDisplayContainer = () => {
         firstCurrentImageLabel={firstCurrentImageLabel}
         firstImageStreak={firstImageStreak}
       />
-
       <SecondImageDispay
         secondSelectedImage={secondSelectedImage}
         secondCurrentId={secondCurrentId}

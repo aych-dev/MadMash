@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import MadLadsLogoBlack from '../Images/MadLads_BlackLogo.png';
 import WinStreak from './WinStreak';
 
@@ -5,7 +6,7 @@ interface Props {
   firstCurrentImage: string;
   startProgram: boolean;
   firstCurrentId: string;
-  firstSelectedImage: () => void;
+  firstSelectedImage: (selectedImage: string) => void;
   firstCurrentImageLabel: string;
   firstImageStreak: number;
 }
@@ -18,11 +19,13 @@ const FirstImageDisplay = ({
   firstCurrentImageLabel,
   firstImageStreak,
 }: Props) => {
+  const [test, setSelectedImage] = useState<string>(firstCurrentId);
+
   if (startProgram) {
     return (
       <div key={firstCurrentId}>
         <img
-          onClick={() => firstSelectedImage()}
+          onClick={() => firstSelectedImage(test)}
           className='h-auto w-48 rounded cursor-pointer'
           src={firstCurrentImage}
           alt='test'
