@@ -3,7 +3,6 @@ import SecondImageDispay from './SecondImageDispay';
 import StartButton from './StartButton';
 import { useState, useEffect } from 'react';
 import useMintlist from '../Hooks/useMintlist';
-import WinStreak from './WinStreak';
 
 const ImageDisplayContainer = () => {
   const { listOfImages } = useMintlist();
@@ -29,6 +28,8 @@ const ImageDisplayContainer = () => {
   const [newNumber, setNewNumber] = useState<number>(0);
   const [firstCurrentId, setFirstCurrentId] = useState<string>('abcdefg');
   const [preLoadedId, setPreLoadedId] = useState<string>('112222');
+  const [firstImageStreak, setFirstImageStreak] = useState<number>(0);
+  const [secondImageStreak, setSecondImageStreak] = useState<number>(0);
 
   useEffect(() => {
     const imagePreLoader = () => {
@@ -63,6 +64,7 @@ const ImageDisplayContainer = () => {
     setSecondCurrentImage(preLoadedImage);
     setSecondCurrentId(preLoadedId);
     setCurrentImageLabelTest(preLoadedImageLabel);
+    imageStreak();
   };
 
   const secondSelectedImage = () => {
@@ -70,6 +72,12 @@ const ImageDisplayContainer = () => {
     setFirstCurrentImage(preLoadedImage);
     setFirstCurrentId(preLoadedId);
     setFirstCurrentImageLabel(preLoadedImageLabel);
+  };
+
+  const imageStreak = () => {
+    let number = firstImageStreak;
+    number += 1;
+    return setFirstImageStreak(number);
   };
 
   return (
@@ -80,6 +88,7 @@ const ImageDisplayContainer = () => {
         firstCurrentImage={firstCurrentImage}
         startProgram={startProgram}
         firstCurrentImageLabel={firstCurrentImageLabel}
+        firstImageStreak={firstImageStreak}
       />
 
       <SecondImageDispay

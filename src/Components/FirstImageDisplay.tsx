@@ -7,6 +7,7 @@ interface Props {
   firstCurrentId: string;
   firstSelectedImage: () => void;
   firstCurrentImageLabel: string;
+  firstImageStreak: number;
 }
 
 const FirstImageDisplay = ({
@@ -15,6 +16,7 @@ const FirstImageDisplay = ({
   firstCurrentId,
   firstSelectedImage,
   firstCurrentImageLabel,
+  firstImageStreak,
 }: Props) => {
   if (startProgram) {
     return (
@@ -29,7 +31,7 @@ const FirstImageDisplay = ({
           <div>{firstCurrentImageLabel}</div>
         </div>
         <div className='flex items-center justify-center'>
-          <WinStreak />
+          <WinStreak firstImageStreak={firstImageStreak} />
         </div>
       </div>
     );
