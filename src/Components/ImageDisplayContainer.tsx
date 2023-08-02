@@ -3,6 +3,7 @@ import SecondImageDispay from './SecondImageDispay';
 import StartButton from './StartButton';
 import { useState, useEffect } from 'react';
 import useMintlist from '../Hooks/useMintlist';
+import WinStreak from './WinStreak';
 
 const ImageDisplayContainer = () => {
   const { listOfImages } = useMintlist();
@@ -88,6 +89,7 @@ const ImageDisplayContainer = () => {
         startProgram={startProgram}
         secondCurrentImage={secondCurrentImage}
       />
+
       <div className='col-span-2 flex items-center justify-center'>
         <StartButton
           onStartProgram={onStartProgram}

@@ -7,7 +7,7 @@ const StartButton = ({ onStartProgram, startProgram }: Props) => {
   return (
     <button
       onClick={() => onStartProgram()}
-      className='border rounded bg-red-500 hover:bg-red-700 text-black font-bold w-40'
+      className='border rounded bg-red-500 hover:bg-red-700 text-black font-bold w-40 mt-3'
     >
       {startProgram ? "FOCKIN' Restart" : "FOCKIN' Start"}
     </button>

@@ -1,4 +1,6 @@
 import MadLadsRedLogo from '../Images/MadLads_RedLogo.png';
+import WinStreak from './WinStreak';
+
 interface Props {
   secondCurrentImage: string;
   startProgram: boolean;
@@ -26,7 +28,9 @@ const SecondImageDisplay = ({
         <div className='flex items-center justify-center'>
           <div>{secondImageLabel}</div>
         </div>
-        <div className='flex items-center justify-center col-span-2 mt-10'></div>
+        <div className='flex items-center justify-center'>
+          <WinStreak />
+        </div>
       </div>
     );
   } else {
@@ -36,7 +40,6 @@ const SecondImageDisplay = ({
         <div className='flex items-center justify-center'>
           <div>Mad Lads</div>
         </div>
-        <div className='flex items-center justify-center col-span-2 mt-10'></div>
       </div>
     );
   }

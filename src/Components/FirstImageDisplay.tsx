@@ -1,4 +1,5 @@
 import MadLadsLogoBlack from '../Images/MadLads_BlackLogo.png';
+import WinStreak from './WinStreak';
 
 interface Props {
   firstCurrentImage: string;
@@ -27,7 +28,9 @@ const FirstImageDisplay = ({
         <div className='flex items-center justify-center'>
           <div>{firstCurrentImageLabel}</div>
         </div>
-        <div className='flex items-center justify-center col-span-2 mt-10'></div>
+        <div className='flex items-center justify-center'>
+          <WinStreak />
+        </div>
       </div>
     );
   } else {
@@ -41,7 +44,6 @@ const FirstImageDisplay = ({
         <div className='flex items-center justify-center'>
           <div>Mad Lads</div>
         </div>
-        <div className='flex items-center justify-center col-span-2 mt-10'></div>
       </div>
     );
   }
