@@ -1,37 +1,37 @@
 import MadLadsRedLogo from '../Images/MadLads_RedLogo.png';
 interface Props {
-  currentImageTest: string;
+  secondCurrentImage: string;
   startProgram: boolean;
-  currentIdTest: string;
-  selectedImageTest: () => void;
-  currentImageLabelTest: string;
+  secondCurrentId: string;
+  secondSelectedImage: () => void;
+  secondImageLabel: string;
 }
 
 const SecondImageDisplay = ({
-  currentImageTest,
+  secondCurrentImage,
   startProgram,
-  currentIdTest,
-  selectedImageTest,
-  currentImageLabelTest,
+  secondCurrentId,
+  secondSelectedImage,
+  secondImageLabel,
 }: Props) => {
   if (startProgram) {
     return (
-      <div key={currentIdTest}>
+      <div key={secondCurrentId}>
         <img
-          onClick={() => selectedImageTest()}
+          onClick={() => secondSelectedImage()}
           className='h-auto w-48 rounded cursor-pointer'
-          src={currentImageTest}
+          src={secondCurrentImage}
           alt='test'
         />
         <div className='flex items-center justify-center'>
-          <div>{currentImageLabelTest}</div>
+          <div>{secondImageLabel}</div>
         </div>
         <div className='flex items-center justify-center col-span-2 mt-10'></div>
       </div>
     );
   } else {
     return (
-      <div key={currentIdTest}>
+      <div key={secondCurrentId}>
         <img className='h-auto w-48 rounded ' src={MadLadsRedLogo} alt='test' />
         <div className='flex items-center justify-center'>
           <div>Mad Lads</div>

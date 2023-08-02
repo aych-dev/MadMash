@@ -6,28 +6,28 @@ import useMintlist from '../Hooks/useMintlist';
 
 const ImageDisplayContainer = () => {
   const { listOfImages } = useMintlist();
+
   const [startProgram, setStartProgram] = useState<boolean>(false);
-  const [currentImage, setCurrentImage] = useState<string>(
+  const [firstCurrentImage, setFirstCurrentImage] = useState<string>(
     'https://madlads.s3.us-west-2.amazonaws.com/images/9108.png'
   );
   const [preLoadedImage, setPreLoadedImage] = useState<string>(
     'https://madlads.s3.us-west-2.amazonaws.com/images/9508.png'
   );
-  const [preLoadedImageLabel, setPreLoadedImageLabel] =
-    useState<string>('Mad Lad #9508');
-  const [currentImageLabel, setCurrentImageLabel] =
-    useState<string>('Mad Lad #9108');
-  const [imageSelected, setImageSelected] = useState<boolean>(false);
-  const [newNumber, setNewNumber] = useState<number>(0);
-  const [currentId, setCurrentId] = useState<string>('abcdefg');
-  const [preLoadedId, setPreLoadedId] = useState<string>('112222');
-
-  const [currentImageTest, setCurrentImageTest] = useState<string>(
+  const [secondCurrentImage, setSecondCurrentImage] = useState<string>(
     'https://madlads.s3.us-west-2.amazonaws.com/images/9308.png'
   );
-  const [currentImageLabelTest, setCurrentImageLabelTest] =
+  const [preLoadedImageLabel, setPreLoadedImageLabel] =
+    useState<string>('Mad Lad #9508');
+  const [firstCurrentImageLabel, setFirstCurrentImageLabel] =
+    useState<string>('Mad Lad #9108');
+  const [secondImageLabel, setCurrentImageLabelTest] =
     useState<string>('Mad Lad #9308');
-  const [currentIdTest, setCurrentIdTest] = useState<string>('abcdefg');
+  const [secondCurrentId, setSecondCurrentId] = useState<string>('abcdefg');
+  const [imageSelected, setImageSelected] = useState<boolean>(false);
+  const [newNumber, setNewNumber] = useState<number>(0);
+  const [firstCurrentId, setFirstCurrentId] = useState<string>('abcdefg');
+  const [preLoadedId, setPreLoadedId] = useState<string>('112222');
 
   useEffect(() => {
     const imagePreLoader = () => {
@@ -46,46 +46,46 @@ const ImageDisplayContainer = () => {
   const onStartProgram = () => {
     setStartProgram((prevState) => !prevState);
     if (startProgram) {
-      setCurrentImage(
+      setFirstCurrentImage(
         'https://madlads.s3.us-west-2.amazonaws.com/images/9108.png'
       );
-      setCurrentImageTest(
+      setSecondCurrentImage(
         'https://madlads.s3.us-west-2.amazonaws.com/images/9308.png'
       );
-      setCurrentImageLabel('Mad Lad #9108');
+      setFirstCurrentImageLabel('Mad Lad #9108');
       setCurrentImageLabelTest('Mad Lad #9308');
     }
   };
 
-  const selectedImage = () => {
+  const firstSelectedImage = () => {
     setImageSelected(!imageSelected);
-    setCurrentImage(preLoadedImage);
-    setCurrentId(preLoadedId);
-    setCurrentImageLabel(preLoadedImageLabel);
+    setFirstCurrentImage(preLoadedImage);
+    setFirstCurrentId(preLoadedId);
+    setFirstCurrentImageLabel(preLoadedImageLabel);
   };
 
-  const selectedImageTest = () => {
+  const secondSelectedImage = () => {
     setImageSelected(!imageSelected);
-    setCurrentImageTest(preLoadedImage);
-    setCurrentIdTest(preLoadedId);
+    setSecondCurrentImage(preLoadedImage);
+    setSecondCurrentId(preLoadedId);
     setCurrentImageLabelTest(preLoadedImageLabel);
   };
 
   return (
     <div className='grid grid-cols-2 gap-3'>
       <FirstImageDisplay
-        selectedImage={selectedImage}
-        currentId={currentId}
-        currentImage={currentImage}
+        firstSelectedImage={firstSelectedImage}
+        firstCurrentId={firstCurrentId}
+        firstCurrentImage={firstCurrentImage}
         startProgram={startProgram}
-        currentImageLabel={currentImageLabel}
+        firstCurrentImageLabel={firstCurrentImageLabel}
       />
       <SecondImageDispay
-        selectedImageTest={selectedImageTest}
-        currentIdTest={currentIdTest}
-        currentImageLabelTest={currentImageLabelTest}
+        secondSelectedImage={secondSelectedImage}
+        secondCurrentId={secondCurrentId}
+        secondImageLabel={secondImageLabel}
         startProgram={startProgram}
-        currentImageTest={currentImageTest}
+        secondCurrentImage={secondCurrentImage}
       />
       <div className='col-span-2 flex items-center justify-center'>
         <StartButton

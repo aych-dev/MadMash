@@ -1,38 +1,38 @@
 import MadLadsLogoBlack from '../Images/MadLads_BlackLogo.png';
 
 interface Props {
-  currentImage: string;
+  firstCurrentImage: string;
   startProgram: boolean;
-  currentId: string;
-  selectedImage: () => void;
-  currentImageLabel: string;
+  firstCurrentId: string;
+  firstSelectedImage: () => void;
+  firstCurrentImageLabel: string;
 }
 
 const FirstImageDisplay = ({
-  currentImage,
+  firstCurrentImage,
   startProgram,
-  currentId,
-  selectedImage,
-  currentImageLabel,
+  firstCurrentId,
+  firstSelectedImage,
+  firstCurrentImageLabel,
 }: Props) => {
   if (startProgram) {
     return (
-      <div key={currentId}>
+      <div key={firstCurrentId}>
         <img
-          onClick={() => selectedImage()}
+          onClick={() => firstSelectedImage()}
           className='h-auto w-48 rounded cursor-pointer'
-          src={currentImage}
+          src={firstCurrentImage}
           alt='test'
         />
         <div className='flex items-center justify-center'>
-          <div>{currentImageLabel}</div>
+          <div>{firstCurrentImageLabel}</div>
         </div>
         <div className='flex items-center justify-center col-span-2 mt-10'></div>
       </div>
     );
   } else {
     return (
-      <div key={currentId}>
+      <div key={firstCurrentId}>
         <img
           className='h-auto w-48 rounded '
           src={MadLadsLogoBlack}
