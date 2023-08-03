@@ -11,6 +11,7 @@ const ImageDisplayContainer = () => {
   const [firstCurrentImage, setFirstCurrentImage] = useState<string>(
     'https://madlads.s3.us-west-2.amazonaws.com/images/9108.png'
   );
+  console.log(firstCurrentImage);
   const [preLoadedImage, setPreLoadedImage] = useState<string>(
     'https://madlads.s3.us-west-2.amazonaws.com/images/9508.png'
   );
@@ -33,7 +34,7 @@ const ImageDisplayContainer = () => {
 
   useEffect(() => {
     const imagePreLoader = () => {
-      setNewNumber(Math.floor(Math.random() * 1000) + 1);
+      setNewNumber(Math.floor(Math.random() * 10000) + 1);
       listOfImages.map((image, index) => {
         if (newNumber === index) {
           setPreLoadedImage(image.image);

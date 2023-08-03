@@ -4,7 +4,6 @@ interface Props {
 }
 
 const WinStreak = ({ firstImageStreak = 0, secondImageStreak = 0 }: Props) => {
-  console.log(secondImageStreak);
   if (firstImageStreak) {
     return <div> {firstImageStreak} ⭐️</div>;
   } else {
