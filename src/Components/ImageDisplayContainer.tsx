@@ -61,33 +61,38 @@ const ImageDisplayContainer = () => {
     }
   };
 
-  const firstSelectedImage = (selectedImage: string) => {
-    setImageSelected(!imageSelected);
-    setSecondCurrentImage(preLoadedImage);
-    setSecondCurrentId(preLoadedId);
-    setSecondImageLabel(preLoadedImageLabel);
-    imageStreak();
-    console.log(selectedImage);
-    console.log(firstCurrentId);
+  const onSelectedImage = (selectedImage: string) => {
+    if (selectedImage === firstCurrentImage) {
+      setImageSelected(!imageSelected);
+      setSecondCurrentImage(preLoadedImage);
+      setSecondCurrentId(preLoadedId);
+      setSecondImageLabel(preLoadedImageLabel);
+      imageStreak(selectedImage);
+      console.log(selectedImage);
+    } else {
+      setImageSelected(!imageSelected);
+      setFirstCurrentImage(preLoadedImage);
+      setFirstCurrentId(preLoadedId);
+      setFirstCurrentImageLabel(preLoadedImageLabel);
+      imageStreak(selectedImage);
+      console.log(selectedImage);
+    }
   };
 
-  const secondSelectedImage = () => {
-    setImageSelected(!imageSelected);
-    setFirstCurrentImage(preLoadedImage);
-    setFirstCurrentId(preLoadedId);
-    setFirstCurrentImageLabel(preLoadedImageLabel);
-  };
-
-  const imageStreak = () => {
-    let number = firstImageStreak;
-    number += 1;
-    return setFirstImageStreak(number);
+  const imageStreak = (selectedImage: string) => {
+    if (selectedImage === firstCurrentImage) {
+      setFirstImageStreak(firstImageStreak + 1);
+      setSecondImageStreak(0);
+    } else {
+      setSecondImageStreak(secondImageStreak + 1);
+      setFirstImageStreak(0);
+    }
   };
 
   return (
     <div className='grid grid-cols-2 gap-3'>
       <FirstImageDisplay
-        firstSelectedImage={firstSelectedImage}
+        onSelectedImage={onSelectedImage}
         firstCurrentId={firstCurrentId}
         firstCurrentImage={firstCurrentImage}
         startProgram={startProgram}
@@ -95,7 +100,7 @@ const ImageDisplayContainer = () => {
         firstImageStreak={firstImageStreak}
       />
       <SecondImageDispay
-        secondSelectedImage={secondSelectedImage}
+        onSelectedImage={onSelectedImage}
         secondCurrentId={secondCurrentId}
         secondImageLabel={secondImageLabel}
         startProgram={startProgram}

@@ -1,9 +1,9 @@
 interface Props {
-  firstSelectedImage: () => void;
+
   firstImageStreak: number;
 }
 
-const WinStreak = ({ firstSelectedImage, firstImageStreak }: Props) => {
+const WinStreak = ({  firstImageStreak }: Props) => {
   return <div> {firstImageStreak} ⭐️</div>;
 };
 

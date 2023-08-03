@@ -6,7 +6,7 @@ interface Props {
   firstCurrentImage: string;
   startProgram: boolean;
   firstCurrentId: string;
-  firstSelectedImage: (selectedImage: string) => void;
+  onSelectedImage: (selectedImage: string) => void;
   firstCurrentImageLabel: string;
   firstImageStreak: number;
 }
@@ -15,17 +15,15 @@ const FirstImageDisplay = ({
   firstCurrentImage,
   startProgram,
   firstCurrentId,
-  firstSelectedImage,
+  onSelectedImage,
   firstCurrentImageLabel,
   firstImageStreak,
 }: Props) => {
-  const [test, setSelectedImage] = useState<string>(firstCurrentId);
-
   if (startProgram) {
     return (
       <div key={firstCurrentId}>
         <img
-          onClick={() => firstSelectedImage(test)}
+          onClick={() => onSelectedImage(firstCurrentImage)}
           className='h-auto w-48 rounded cursor-pointer'
           src={firstCurrentImage}
           alt='test'
