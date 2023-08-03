@@ -68,14 +68,13 @@ const ImageDisplayContainer = () => {
       setSecondCurrentId(preLoadedId);
       setSecondImageLabel(preLoadedImageLabel);
       imageStreak(selectedImage);
-      console.log(selectedImage);
     } else {
       setImageSelected(!imageSelected);
       setFirstCurrentImage(preLoadedImage);
       setFirstCurrentId(preLoadedId);
       setFirstCurrentImageLabel(preLoadedImageLabel);
       imageStreak(selectedImage);
-      console.log(selectedImage);
+      console.log(secondImageStreak);
     }
   };
 
@@ -83,7 +82,7 @@ const ImageDisplayContainer = () => {
     if (selectedImage === firstCurrentImage) {
       setFirstImageStreak(firstImageStreak + 1);
       setSecondImageStreak(0);
-    } else {
+    } else if (selectedImage === secondCurrentImage) {
       setSecondImageStreak(secondImageStreak + 1);
       setFirstImageStreak(0);
     }
@@ -105,6 +104,7 @@ const ImageDisplayContainer = () => {
         secondImageLabel={secondImageLabel}
         startProgram={startProgram}
         secondCurrentImage={secondCurrentImage}
+        secondImageStreak={secondImageStreak}
       />
 
       <div className='col-span-2 flex items-center justify-center'>

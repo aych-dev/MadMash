@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import MadLadsLogoBlack from '../Images/MadLads_BlackLogo.png';
 import WinStreak from './WinStreak';
 

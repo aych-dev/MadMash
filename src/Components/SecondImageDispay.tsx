@@ -7,6 +7,7 @@ interface Props {
   secondCurrentId: string;
   onSelectedImage: (selectedImage: string) => void;
   secondImageLabel: string;
+  secondImageStreak: number;
 }
 
 const SecondImageDisplay = ({
@@ -15,6 +16,7 @@ const SecondImageDisplay = ({
   secondCurrentId,
   onSelectedImage,
   secondImageLabel,
+  secondImageStreak,
 }: Props) => {
   if (startProgram) {
     return (
@@ -29,7 +31,7 @@ const SecondImageDisplay = ({
           <div>{secondImageLabel}</div>
         </div>
         <div className='flex items-center justify-center'>
-          <WinStreak />
+          <WinStreak secondImageStreak={secondImageStreak} />
         </div>
       </div>
     );

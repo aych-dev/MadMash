@@ -1,10 +1,15 @@
 interface Props {
-
-  firstImageStreak: number;
+  firstImageStreak?: number;
+  secondImageStreak?: number;
 }
 
-const WinStreak = ({  firstImageStreak }: Props) => {
-  return <div> {firstImageStreak} ⭐️</div>;
+const WinStreak = ({ firstImageStreak = 0, secondImageStreak = 0 }: Props) => {
+  console.log(secondImageStreak);
+  if (firstImageStreak) {
+    return <div> {firstImageStreak} ⭐️</div>;
+  } else {
+    return <div> {secondImageStreak} ⭐️ </div>;
+  }
 };
 
 export default WinStreak;
