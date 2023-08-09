@@ -23,7 +23,7 @@ const SecondImageDisplay = ({
       <div key={secondCurrentId}>
         <img
           onClick={() => onSelectedImage(secondCurrentImage)}
-          className='h-auto w-48 rounded cursor-pointer'
+          className='h-auto w-48 rounded cursor-pointer border-2 border-red-500'
           src={secondCurrentImage}
           alt='test'
         />
@@ -40,7 +40,11 @@ const SecondImageDisplay = ({
   } else {
     return (
       <div key={secondCurrentId}>
-        <img className='h-auto w-48 rounded ' src={MadLadsRedLogo} alt='test' />
+        <img
+          className='h-auto w-48 rounded-xl border-2 border-red-500'
+          src={MadLadsRedLogo}
+          alt='test'
+        />
         <div className='flex items-center justify-center'>
           <div className='font-bold font-sans-pro text-lg'>Mad Lads</div>
         </div>

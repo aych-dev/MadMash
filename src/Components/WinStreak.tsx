@@ -5,9 +5,19 @@ interface Props {
 
 const WinStreak = ({ firstImageStreak = 0, secondImageStreak = 0 }: Props) => {
   if (firstImageStreak) {
-    return <div> {firstImageStreak} ⭐️</div>;
+    return (
+      <div className='font-bold font-sans-pro text-lg'>
+        {' '}
+        {firstImageStreak} ⭐️
+      </div>
+    );
   } else {
-    return <div> {secondImageStreak} ⭐️ </div>;
+    return (
+      <div className='font-bold font-sans-pro text-lg'>
+        {' '}
+        {secondImageStreak} ⭐️{' '}
+      </div>
+    );
   }
 };
 

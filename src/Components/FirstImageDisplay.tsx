@@ -23,7 +23,7 @@ const FirstImageDisplay = ({
       <div key={firstCurrentId}>
         <img
           onClick={() => onSelectedImage(firstCurrentImage)}
-          className='h-auto w-48 rounded cursor-pointer'
+          className='h-auto w-48 rounded cursor-pointer border-2 border-black'
           src={firstCurrentImage}
           alt='test'
         />
@@ -41,7 +41,7 @@ const FirstImageDisplay = ({
     return (
       <div key={firstCurrentId}>
         <img
-          className='h-auto w-48 rounded '
+          className='h-auto w-48 rounded-xl border-2 border-black'
           src={MadLadsLogoBlack}
           alt='test'
         />
