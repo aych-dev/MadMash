@@ -1,10 +1,13 @@
 import MainDisplayContainer from '../src/Components/MainDisplayContainer';
+import NavBar from './Components/NavBar';
+import { Container } from '@mui/material';
 
 function App() {
   return (
-    <div>
+    <Container>
+      <NavBar />
       <MainDisplayContainer />
-    </div>
+    </Container>
   );
 }
 
