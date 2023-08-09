@@ -1,3 +1,5 @@
+import { Button } from '@mui/material';
+
 interface Props {
   onStartProgram: () => void;
   startProgram: boolean;
@@ -5,12 +7,16 @@ interface Props {
 
 const StartButton = ({ onStartProgram, startProgram }: Props) => {
   return (
-    <button
+    <Button
       onClick={() => onStartProgram()}
-      className='border rounded bg-red-500 hover:bg-red-700 text-black font-bold w-40 mt-3'
+      color='error'
+      variant='outlined'
+      size='large'
     >
-      {startProgram ? "FOCKIN' Restart" : "FOCKIN' Start"}
-    </button>
+      <div className='text-black font-sans-pro font-bold'>
+        {startProgram ? "FOCKIN' Restart" : "FOCKIN' Start"}
+      </div>
+    </Button>
   );
 };
 
