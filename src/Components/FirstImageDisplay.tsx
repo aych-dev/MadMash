@@ -28,7 +28,9 @@ const FirstImageDisplay = ({
           alt='test'
         />
         <div className='flex items-center justify-center'>
-          <div>{firstCurrentImageLabel}</div>
+          <div className='font-bold font-sans-pro text-lg'>
+            {firstCurrentImageLabel}
+          </div>
         </div>
         <div className='flex items-center justify-center'>
           <WinStreak firstImageStreak={firstImageStreak} />
@@ -44,7 +46,7 @@ const FirstImageDisplay = ({
           alt='test'
         />
         <div className='flex items-center justify-center'>
-          <div>Mad Lads</div>
+          <div className='font-bold font-sans-pro text-lg'>Mad Lads</div>
         </div>
       </div>
     );

@@ -28,7 +28,9 @@ const SecondImageDisplay = ({
           alt='test'
         />
         <div className='flex items-center justify-center'>
-          <div>{secondImageLabel}</div>
+          <div className='font-bold font-sans-pro text-lg'>
+            {secondImageLabel}
+          </div>
         </div>
         <div className='flex items-center justify-center'>
           <WinStreak secondImageStreak={secondImageStreak} />
@@ -40,7 +42,7 @@ const SecondImageDisplay = ({
       <div key={secondCurrentId}>
         <img className='h-auto w-48 rounded ' src={MadLadsRedLogo} alt='test' />
         <div className='flex items-center justify-center'>
-          <div>Mad Lads</div>
+          <div className='font-bold font-sans-pro text-lg'>Mad Lads</div>
         </div>
       </div>
     );
