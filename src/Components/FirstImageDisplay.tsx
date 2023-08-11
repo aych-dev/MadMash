@@ -28,7 +28,7 @@ const FirstImageDisplay = ({
           alt='test'
         />
         <div className='flex items-center justify-center'>
-          <div className='font-bold font-sans-pro text-lg'>
+          <div className='font-bold font-sans-pro text-lg mt-1'>
             {firstCurrentImageLabel}
           </div>
         </div>

@@ -11,15 +11,15 @@ const ImageDisplayContainer = () => {
   const [firstCurrentImage, setFirstCurrentImage] = useState<string>(
     'https://madlads.s3.us-west-2.amazonaws.com/images/9108.png'
   );
-  console.log(firstCurrentImage);
+
   const [preLoadedImage, setPreLoadedImage] = useState<string>(
-    'https://madlads.s3.us-west-2.amazonaws.com/images/9508.png'
+    'https://madlads.s3.us-west-2.amazonaws.com/images/100.png'
   );
   const [secondCurrentImage, setSecondCurrentImage] = useState<string>(
     'https://madlads.s3.us-west-2.amazonaws.com/images/9308.png'
   );
   const [preLoadedImageLabel, setPreLoadedImageLabel] =
-    useState<string>('Mad Lad #9508');
+    useState<string>('Mad Lad #100');
   const [firstCurrentImageLabel, setFirstCurrentImageLabel] =
     useState<string>('Mad Lad #9108');
   const [secondImageLabel, setSecondImageLabel] =
@@ -28,14 +28,16 @@ const ImageDisplayContainer = () => {
   const [imageSelected, setImageSelected] = useState<boolean>(false);
   const [newNumber, setNewNumber] = useState<number>(0);
   const [firstCurrentId, setFirstCurrentId] = useState<string>('abcdefg');
-  const [preLoadedId, setPreLoadedId] = useState<string>('112222');
+  const [preLoadedId, setPreLoadedId] = useState<string>('1');
   const [firstImageStreak, setFirstImageStreak] = useState<number>(0);
   const [secondImageStreak, setSecondImageStreak] = useState<number>(0);
+  console.log(preLoadedImage);
 
   useEffect(() => {
-    const imagePreLoader = () => {
-      setNewNumber(Math.floor(Math.random() * 10000) + 1);
-      listOfImages.map((image, index) => {
+    const imagePreLoader = async () => {
+      const newRandomNumber = Math.floor(Math.random() * 10000) + 1;
+      await setNewNumber(newRandomNumber);
+      listOfImages.forEach((image, index) => {
         if (newNumber === index) {
           setPreLoadedImage(image.image);
           setPreLoadedImageLabel(image.name);
@@ -46,8 +48,8 @@ const ImageDisplayContainer = () => {
     imagePreLoader();
   }, [imageSelected]);
 
-  const onStartProgram = () => {
-    setStartProgram((prevState) => !prevState);
+  const onStartProgram = async () => {
+    await setStartProgram((prevState) => !prevState);
     if (startProgram) {
       setFirstCurrentImage(
         'https://madlads.s3.us-west-2.amazonaws.com/images/9108.png'
@@ -69,13 +71,12 @@ const ImageDisplayContainer = () => {
       setSecondCurrentId(preLoadedId);
       setSecondImageLabel(preLoadedImageLabel);
       imageStreak(selectedImage);
-    } else {
+    } else if (selectedImage === secondCurrentImage) {
       setImageSelected(!imageSelected);
       setFirstCurrentImage(preLoadedImage);
       setFirstCurrentId(preLoadedId);
       setFirstCurrentImageLabel(preLoadedImageLabel);
       imageStreak(selectedImage);
-      console.log(secondImageStreak);
     }
   };
 

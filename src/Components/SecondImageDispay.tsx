@@ -28,7 +28,7 @@ const SecondImageDisplay = ({
           alt='test'
         />
         <div className='flex items-center justify-center'>
-          <div className='font-bold font-sans-pro text-lg'>
+          <div className='mt-1 font-bold font-sans-pro text-lg'>
             {secondImageLabel}
           </div>
         </div>
