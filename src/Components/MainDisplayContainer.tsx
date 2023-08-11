@@ -1,8 +1,3 @@
-import { useState } from 'react';
-import FirstImageDisplay from './FirstImageDisplay';
-import RatingTracker from './RatingTracker';
-import SecondImageDispay from './SecondImageDispay';
-import StartButton from './StartButton';
 import TitleDisplay from './TitleDisplay';
 import ImageDisplayContainer from './ImageDisplayContainer';
 
