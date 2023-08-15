@@ -10,7 +10,7 @@ const StartButton = ({ onStartProgram, startProgram }: Props) => {
     <Button
       onClick={() => onStartProgram()}
       color='error'
-      variant='outlined'
+      variant='contained'
       size='large'
     >
       <div className='text-black font-sans-pro font-bold'>
