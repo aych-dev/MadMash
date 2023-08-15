@@ -23,7 +23,7 @@ const SecondImageDisplay = ({
       <div key={secondCurrentId}>
         <img
           onClick={() => onSelectedImage(secondCurrentImage)}
-          className='h-auto w-48 rounded cursor-pointer border-2 border-red-500 hover:scale-105'
+          className='h-auto w-48 rounded cursor-pointer border-2 border-red-500 hover:scale-105 hover:border-blue-500 '
           src={secondCurrentImage}
           alt='test'
         />
