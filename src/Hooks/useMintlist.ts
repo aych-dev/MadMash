@@ -18,12 +18,15 @@ export interface MintList {
 const useMintlist = () => {
   const [nftData, setNftData] = useState<MintList[]>([]);
   const listOfImages: ImageArray[] = [];
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const getMintlist = async () => {
       try {
+        setIsLoading(true);
         const { data } = await axios.get(`http://localhost:8000`);
-        await setNftData(data);
+        setIsLoading(false);
+        setNftData(data);
       } catch (err) {
         console.error(err as AxiosError);
       }
@@ -39,7 +42,7 @@ const useMintlist = () => {
     });
   });
 
-  return { listOfImages };
+  return { listOfImages, isLoading };
 };
 
 export default useMintlist;

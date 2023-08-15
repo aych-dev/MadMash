@@ -3,9 +3,10 @@ import SecondImageDispay from './SecondImageDispay';
 import StartButton from './StartButton';
 import { useState, useEffect } from 'react';
 import useMintlist from '../Hooks/useMintlist';
+import { CircularProgress } from '@mui/material';
 
 const ImageDisplayContainer = () => {
-  const { listOfImages } = useMintlist();
+  const { listOfImages, isLoading } = useMintlist();
 
   const [startProgram, setStartProgram] = useState<boolean>(false);
   const [firstCurrentImage, setFirstCurrentImage] = useState<string>(
@@ -26,19 +27,18 @@ const ImageDisplayContainer = () => {
     useState<string>('Mad Lad #9308');
   const [secondCurrentId, setSecondCurrentId] = useState<string>('abcdefg');
   const [imageSelected, setImageSelected] = useState<boolean>(false);
-  const [newNumber, setNewNumber] = useState<number>(0);
   const [firstCurrentId, setFirstCurrentId] = useState<string>('abcdefg');
   const [preLoadedId, setPreLoadedId] = useState<string>('1');
   const [firstImageStreak, setFirstImageStreak] = useState<number>(0);
   const [secondImageStreak, setSecondImageStreak] = useState<number>(0);
+  console.log(listOfImages);
   console.log(preLoadedImage);
 
   useEffect(() => {
-    const imagePreLoader = async () => {
+    const imagePreLoader = () => {
       const newRandomNumber = Math.floor(Math.random() * 10000) + 1;
-      await setNewNumber(newRandomNumber);
-      listOfImages.forEach((image, index) => {
-        if (newNumber === index) {
+      listOfImages.map((image, index) => {
+        if (newRandomNumber === index) {
           setPreLoadedImage(image.image);
           setPreLoadedImageLabel(image.name);
           setPreLoadedId(image.id);
@@ -46,10 +46,10 @@ const ImageDisplayContainer = () => {
       });
     };
     imagePreLoader();
-  }, [imageSelected]);
+  }, [firstCurrentImage, secondCurrentImage, startProgram]);
 
-  const onStartProgram = async () => {
-    await setStartProgram((prevState) => !prevState);
+  const onStartProgram = () => {
+    setStartProgram((prevState) => !prevState);
     if (startProgram) {
       setFirstCurrentImage(
         'https://madlads.s3.us-west-2.amazonaws.com/images/9108.png'
@@ -91,31 +91,42 @@ const ImageDisplayContainer = () => {
   };
 
   return (
-    <div className='grid grid-cols-2 gap-3'>
-      <FirstImageDisplay
-        onSelectedImage={onSelectedImage}
-        firstCurrentId={firstCurrentId}
-        firstCurrentImage={firstCurrentImage}
-        startProgram={startProgram}
-        firstCurrentImageLabel={firstCurrentImageLabel}
-        firstImageStreak={firstImageStreak}
-      />
-      <SecondImageDispay
-        onSelectedImage={onSelectedImage}
-        secondCurrentId={secondCurrentId}
-        secondImageLabel={secondImageLabel}
-        startProgram={startProgram}
-        secondCurrentImage={secondCurrentImage}
-        secondImageStreak={secondImageStreak}
-      />
+    <>
+      {isLoading && (
+        <div className='grid grid-cols-2 gap-3'>
+          <div className='flex items-center justify-center col-span-2 '>
+            <CircularProgress />
+          </div>
+        </div>
+      )}
+      {listOfImages.length > 0 && (
+        <div className='grid grid-cols-2 gap-3'>
+          <FirstImageDisplay
+            onSelectedImage={onSelectedImage}
+            firstCurrentId={firstCurrentId}
+            firstCurrentImage={firstCurrentImage}
+            startProgram={startProgram}
+            firstCurrentImageLabel={firstCurrentImageLabel}
+            firstImageStreak={firstImageStreak}
+          />
+          <SecondImageDispay
+            onSelectedImage={onSelectedImage}
+            secondCurrentId={secondCurrentId}
+            secondImageLabel={secondImageLabel}
+            startProgram={startProgram}
+            secondCurrentImage={secondCurrentImage}
+            secondImageStreak={secondImageStreak}
+          />
 
-      <div className='col-span-2 flex items-center justify-center'>
-        <StartButton
-          onStartProgram={onStartProgram}
-          startProgram={startProgram}
-        />
-      </div>
-    </div>
+          <div className='col-span-2 flex items-center justify-center'>
+            <StartButton
+              onStartProgram={onStartProgram}
+              startProgram={startProgram}
+            />
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
