@@ -6,16 +6,14 @@ interface Props {
 const WinStreak = ({ firstImageStreak = 0, secondImageStreak = 0 }: Props) => {
   if (firstImageStreak) {
     return (
-      <div className='font-bold font-sans-pro text-lg'>
-        {' '}
+      <div className='font-bold font-sans-pro text-lg '>
         {firstImageStreak} ⭐️
       </div>
     );
   } else {
     return (
-      <div className='font-bold font-sans-pro text-lg'>
-        {' '}
-        {secondImageStreak} ⭐️{' '}
+      <div className='font-bold font-sans-pro text-lg '>
+        {secondImageStreak} ⭐️
       </div>
     );
   }
