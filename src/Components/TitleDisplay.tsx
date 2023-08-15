@@ -5,7 +5,7 @@ const TitleDisplay = () => {
         FOCKIN' Choose
       </h1>
       <p className='flex items-center justify-center font-serif font-bold'>
-        Which Mad Lad do you like better?
+        Which Mad Lads do you like better?
       </p>
     </div>
   );

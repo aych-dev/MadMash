@@ -3,7 +3,6 @@ import SecondImageDispay from './SecondImageDispay';
 import StartButton from './StartButton';
 import { useState, useEffect } from 'react';
 import useMintlist from '../Hooks/useMintlist';
-import { CircularProgress } from '@mui/material';
 import LoadingPrompt from './LoadingPrompt';
 
 const ImageDisplayContainer = () => {
@@ -13,26 +12,22 @@ const ImageDisplayContainer = () => {
   const [firstCurrentImage, setFirstCurrentImage] = useState<string>(
     'https://madlads.s3.us-west-2.amazonaws.com/images/9108.png'
   );
-
-  const [preLoadedImage, setPreLoadedImage] = useState<string>(
-    'https://madlads.s3.us-west-2.amazonaws.com/images/100.png'
-  );
+  const [preLoadedImage, setPreLoadedImage] = useState<string>('');
   const [secondCurrentImage, setSecondCurrentImage] = useState<string>(
     'https://madlads.s3.us-west-2.amazonaws.com/images/9308.png'
   );
-  const [preLoadedImageLabel, setPreLoadedImageLabel] =
-    useState<string>('Mad Lad #100');
+  const [preLoadedImageLabel, setPreLoadedImageLabel] = useState<string>('');
   const [firstCurrentImageLabel, setFirstCurrentImageLabel] =
-    useState<string>('Mad Lad #9108');
+    useState<string>('Mad Lads #9108');
   const [secondImageLabel, setSecondImageLabel] =
-    useState<string>('Mad Lad #9308');
+    useState<string>('Mad Lads #9308');
   const [secondCurrentId, setSecondCurrentId] = useState<string>('abcdefg');
   const [imageSelected, setImageSelected] = useState<boolean>(false);
   const [firstCurrentId, setFirstCurrentId] = useState<string>('abcdefg');
   const [preLoadedId, setPreLoadedId] = useState<string>('1');
   const [firstImageStreak, setFirstImageStreak] = useState<number>(0);
   const [secondImageStreak, setSecondImageStreak] = useState<number>(0);
-  console.log(listOfImages);
+
   console.log(preLoadedImage);
 
   useEffect(() => {
