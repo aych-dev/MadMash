@@ -4,6 +4,7 @@ import StartButton from './StartButton';
 import { useState, useEffect } from 'react';
 import useMintlist from '../Hooks/useMintlist';
 import { CircularProgress } from '@mui/material';
+import LoadingPrompt from './LoadingPrompt';
 
 const ImageDisplayContainer = () => {
   const { listOfImages, isLoading } = useMintlist();
@@ -94,12 +95,7 @@ const ImageDisplayContainer = () => {
     <>
       {isLoading && (
         <div className='grid grid-cols-2 gap-3'>
-          <div className='flex items-center justify-center col-span-2 mt-4 '>
-            <CircularProgress />
-          </div>
-          <p className='flex items-center justify-center col-span-2 font-sans-pro font-semibold animate-pulse'>
-            Loading MadLads
-          </p>
+          <LoadingPrompt />
         </div>
       )}
       {listOfImages.length > 0 && (
