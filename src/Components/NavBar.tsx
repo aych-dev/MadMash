@@ -1,5 +1,6 @@
 import RedMadLadLogo from '../Images/MadLads_RedLogo.png';
 import { Breadcrumbs, Link } from '@mui/material';
+import { Twitter, GitHub } from '@mui/icons-material';
 
 const NavBar = () => {
   return (
@@ -8,11 +9,24 @@ const NavBar = () => {
         <div>
           <img src={RedMadLadLogo} alt='Mad Lads' className='h-20 ml-2' />
         </div>
-        <div className='mr-2'>
+        <div className='mr-2 '>
           <Breadcrumbs>
-            <Link>one</Link>
-            <Link>two</Link>
-            <Link>three</Link>
+            <Link
+              underline='hover'
+              color='text.primary'
+              className='cursor-pointer'
+            >
+              GitHub
+              <GitHub className='ml-1' />
+            </Link>
+            <Link
+              color='text.primary'
+              underline='hover'
+              className='cursor-pointer'
+            >
+              Twitter
+              <Twitter className='ml-1' />
+            </Link>
           </Breadcrumbs>
         </div>
       </div>
