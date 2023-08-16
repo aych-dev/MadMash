@@ -15,6 +15,7 @@ const NavBar = () => {
               underline='hover'
               color='text.primary'
               className='cursor-pointer'
+              href='https://github.com/aych-dev'
             >
               GitHub
               <GitHub className='ml-1' />
@@ -23,6 +24,7 @@ const NavBar = () => {
               color='text.primary'
               underline='hover'
               className='cursor-pointer'
+              href='https://twitter.com/aychdev'
             >
               Twitter
               <Twitter className='ml-1' />
