@@ -5,7 +5,7 @@ function App() {
   return (
     <div>
       <NavBar />
-      <div className='background-image-container rounded-full bg-customRed flex items-center justify-center'>
+      <div className='background-image-container rounded-full bg-customRed flex items-center justify-center mt-1'>
         <MainDisplayContainer />
       </div>
     </div>

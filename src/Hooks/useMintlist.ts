@@ -24,7 +24,9 @@ const useMintlist = () => {
     const getMintlist = async () => {
       try {
         setIsLoading(true);
-        const { data } = await axios.get(`http://localhost:8000`);
+        const { data } = await axios.get(
+          `https://cryptic-anchorage-73113-c632759ca232.herokuapp.com/madlads`
+        );
         setIsLoading(false);
         setNftData(data);
       } catch (err) {
