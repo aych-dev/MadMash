@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .background-image-container {
-  background-image: url(src/Images/MadLads_BlackLogo.png);
+  background-image: url(../src/Images/MadLads_BlackLogo.png);
   min-height: 100vh;
   min-width: 100vw;
   background-size: cover;
