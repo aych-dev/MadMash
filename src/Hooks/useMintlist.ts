@@ -38,7 +38,7 @@ const useMintlist = () => {
 
   nftData.forEach((data) => {
     listOfImages.push({
-      image: data.content.files[0].uri,
+      image: data.content.files[0]?.uri,
       id: data.id,
       name: data.content.metadata.name,
     });
