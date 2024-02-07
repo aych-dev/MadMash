@@ -15,7 +15,7 @@ app.get('/madlads', async (req, res) => {
 
   while (page) {
     try {
-      const url = `https://rpc.helius.xyz/?api-key=${process.env.API_KEY}`;
+      const url = `https://mainnet.helius-rpc.com/?api-key=${process.env.API_KEY}`;
       const { data } = await axios.post(url, {
         jsonrpc: '2.0',
         id: 'my-id',
